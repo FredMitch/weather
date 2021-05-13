@@ -6,7 +6,7 @@ The script file weather.js uses HTTPS get uses the wunderground.com API to retri
 
 In addition, the script file weather2.js shows how this can be done using the wunderground package for node rather than HTTP get.
 
-I created the database using the command "sqlite3 weather.db" and then ran the sql file to create the tables using the command '.read Crete_DB.sql" from within SQLite.
+I created the database using the command "sqlite3 weather.db" and then ran the sql file to create the tables using the command ".read Create_DB.sql" from within SQLite.
 
 This app was developed and will run on Windows but I now run this on my RaspberryPi and have it scheduled to run every 15 minutes however, I had to make some small changes and additions to get this to run:
 
