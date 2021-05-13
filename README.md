@@ -8,7 +8,7 @@ In addition, the script file weather2.js shows how this can be done using the wu
 
 I created the database using the command "sqlite3 weather.db" and then ran the sql file to create the tables using the command '.read Crete_DB.sql" from within SQLite.
 
-I now run this on my RaspberryPi and have it scheduled to run every 15 minutes however I had to make some small changes and additions to get this to run:
+This app was developed and will run on Windows but I now run this on my RaspberryPi and have it scheduled to run every 15 minutes however, I had to make some small changes and additions to get this to run:
 
 * Installed latest version of node and sqlite.
 * Created folder "projects/weather" in my home directory.
