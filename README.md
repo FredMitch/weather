@@ -2,19 +2,21 @@
 
 I have a personal weather station which sends data to wunderground.com, but I wanted to be able to analyse this data myself.  As there is no way to get this data directly, I wrote this app to retrieve the data from wunderground.com.
 
-The script file weather.js uses HTTPS get uses the wunderground.com API to retrive he latest weather data and write this to an SQLite database.  
+The script file "weather.js" uses HTTPS get and the wunderground.com API to retrive he latest weather data and write this to an SQLite database.  In addition, the script file "weather2.js" shows how this can be done using the wunderground package for node rather than HTTP get.
 
-In addition, the script file weather2.js shows how this can be done using the wunderground package for node rather than HTTP get.
+I have another project on GitHub called "Get-Temp" which shows how the same API call to wunderground.com can be called from an IBMi (aka iSeries or AS400).
 
-I created the database using the command "sqlite3 weather.db" and then ran the sql file to create the tables using the command ".read Create_DB.sql" from within SQLite.
-
-This app was developed and will run on Windows but I now run this on my RaspberryPi and have it scheduled to run every 15 minutes however, I had to make some small changes and additions to get this to run:
+This app was developed on Windows 10 and will run on any platform that supports node and sqlite.  I now run this on my RaspberryPi and have it scheduled to run every 15 minutes however, these are the steps I went through to get it to run on the RaspberryPi:
 
 * Installed latest version of node and sqlite.
-* Created folder "projects/weather" in my home directory.
-* Added files "weather.js" and "Create_DB.sql"
+* Created directory "projects/weather" in my home directory.
+* Changed to the project directory "cd /home/pi/projects/weather".
+* Added files "weather.js" and "Create_DB.sql" using SSH/SFTP.
 * Created database "weather.db" and created the tables.
+    * "sqlite3 weather.db"
+    * ".read Create_DB.sql"
 * Changed "weather.js" to specify the full path to "weather.db".
+    * "/home/pi/projects/weather/weather.db"
 * Created the script file "weather.sh" to run the app with the full paths for node and the app:
     * "/usr/local/bin/node /home/pi/projects/weather/weather.js"
 * Set permissions on "weather.js" and "weather.sh" to 744 to allow execution:
