@@ -1,0 +1,2 @@
+# Run weather.sh every 15 minutes, every day of the year and send all output to weather.log
+*/15 * * * * /home/pi/projects/weather/weather.sh >> /home/pi/projects/weather/weather.log 2>&1 &
